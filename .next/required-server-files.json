@@ -96,7 +96,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/Users/yamadatarou/bagstore",
+    "outputFileTracingRoot": "/Users/yamadatarou/Web/bagstore",
     "experimental": {
       "nodeMiddleware": false,
       "cacheLife": {
@@ -279,10 +279,10 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/Users/yamadatarou/bagstore"
+      "root": "/Users/yamadatarou/Web/bagstore"
     }
   },
-  "appDir": "/Users/yamadatarou/bagstore",
+  "appDir": "/Users/yamadatarou/Web/bagstore",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",
@@ -294,11 +294,8 @@
     ".next/server/middleware-build-manifest.js",
     ".next/server/middleware-react-loadable-manifest.js",
     ".next/react-loadable-manifest.json",
-    ".next/server/app-paths-manifest.json",
-    ".next/app-path-routes-manifest.json",
-    ".next/app-build-manifest.json",
-    ".next/server/server-reference-manifest.js",
-    ".next/server/server-reference-manifest.json",
+    ".next/dynamic-css-manifest.json",
+    ".next/server/dynamic-css-manifest.js",
     ".next/BUILD_ID",
     ".next/server/next-font-manifest.js",
     ".next/server/next-font-manifest.json"
