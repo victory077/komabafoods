@@ -1,0 +1,39 @@
+# name: Deploy to GCP Cloud Storage
+
+# on:
+#   push:
+#     branches: [main]
+
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '22.14.0' # 使用するNode.jsのバージョン
+
+#       - name: Install dependencies
+#         run: npm install # または yarn install
+
+#       - name: Build Next.js app
+#         run: npm run build # または yarn build
+
+#       - name: Upload to Cloud Storage
+#         uses: google-github-actions/upload-cloud-storage@v1
+#         with:
+#           credentials_json: ${{ secrets.GCP_SA_KEY }} # GCPサービスアカウントキーのシークレット名
+#           bucket_name: my-product-site-bucket # 作成したCloud Storageバケット名
+#           local_directory: ./out # Next.jsのビルド成果物ディレクトリ (.next/static と public の中身をコピー)
+#           gcloud_build_args: -m "text/html" # 必要に応じてMIMEタイプを指定
+
+#       - name: Invalidate Cloud CDN cache (optional)
+#         if: ${{ env.CDN_ENDPOINT != '' }}
+#         uses: google-github-actions/cloud-cdn-invalidate-cache@v1
+#         with:
+#           credentials_json: ${{ secrets.GCP_SA_KEY }} # GCPサービスアカウントキーのシークレット名
+#           cdn_endpoint: ${{ env.CDN_ENDPOINT }} # Cloud CDNのエンドポイント
+#           paths: '/*'
