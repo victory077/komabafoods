@@ -13,28 +13,38 @@
     }
   ],
   "headers": [],
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/products/[slug]",
+      "regex": "^/products/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/products/(?<nxtPslug>[^/]+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",
       "regex": "^/(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/(?:/)?$"
-    },
-    {
-      "page": "/_not-found",
-      "regex": "^/_not\\-found(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/_not\\-found(?:/)?$"
-    },
-    {
-      "page": "/favicon.ico",
-      "regex": "^/favicon\\.ico(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/favicon\\.ico(?:/)?$"
     }
   ],
-  "dataRoutes": [],
+  "dataRoutes": [
+    {
+      "page": "/",
+      "dataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/index\\.json$"
+    },
+    {
+      "page": "/products/[slug]",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "dataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/(?<nxtPslug>[^/]+?)\\.json$"
+    }
+  ],
   "rsc": {
     "header": "RSC",
     "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",

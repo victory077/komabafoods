@@ -1,26 +1,10 @@
 {
   "version": 4,
   "routes": {
-    "/favicon.ico": {
-      "initialHeaders": {
-        "cache-control": "public, max-age=0, must-revalidate",
-        "content-type": "image/x-icon",
-        "x-next-cache-tags": "_N_T_/layout,_N_T_/favicon.ico/layout,_N_T_/favicon.ico/route,_N_T_/favicon.ico"
-      },
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
+    "/": {
       "initialRevalidateSeconds": false,
-      "srcRoute": "/favicon.ico",
-      "dataRoute": null,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/WxfF3qa0ELcMgRq1UC8yd/index.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,21 +14,23 @@
         "x-next-revalidate-tag-token"
       ]
     },
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "Next-Action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
+    "/products/product-a": {
       "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
+      "srcRoute": "/products/[slug]",
+      "dataRoute": "/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/product-a.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/products/product-b": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/products/[slug]",
+      "dataRoute": "/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/product-b.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -55,11 +41,26 @@
       ]
     }
   },
-  "dynamicRoutes": {},
+  "dynamicRoutes": {
+    "/products/[slug]": {
+      "routeRegex": "^/products/([^/]+?)(?:/)?$",
+      "dataRoute": "/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/[slug].json",
+      "fallback": false,
+      "dataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/([^/]+?)\\.json$",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    }
+  },
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "e9cfea6f5f5c67eeba49dc4351ce1e42",
-    "previewModeSigningKey": "086bcff9503c4834e70b9da35b77909045ae8e8d6e7d1c2c4098b5824b7a2e24",
-    "previewModeEncryptionKey": "6c90564727ee37d48e965906f7d53c73e63b16f7c6815dbb2b283b841c67085a"
+    "previewModeId": "e4fcd8503d47e9c7f1cb40fdf98ab27b",
+    "previewModeSigningKey": "26f3f1cf7b392c4af00dceaae358d026dabea22244e8ef9cf10c8d1e8278596c",
+    "previewModeEncryptionKey": "d88723a7eb6f277e516f594d8fa74164bedadbcf198e6e29042cf5c0c14f3888"
   }
 }
