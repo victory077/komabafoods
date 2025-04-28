@@ -1,39 +1,31 @@
-# name: Deploy to GCP Cloud Storage
+name: deploy next-app
+on: workflow_dispatch
 
-# on:
-#   push:
-#     branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-#       - name: Set up Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: '22.14.0' # 使用するNode.jsのバージョン
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-#       - name: Install dependencies
-#         run: npm install # または yarn install
+      - name: Install Dependencies
+        run: npm install
 
-#       - name: Build Next.js app
-#         run: npm run build # または yarn build
+      - name: Build
+        run: npm build
 
-#       - name: Upload to Cloud Storage
-#         uses: google-github-actions/upload-cloud-storage@v1
-#         with:
-#           credentials_json: ${{ secrets.GCP_SA_KEY }} # GCPサービスアカウントキーのシークレット名
-#           bucket_name: my-product-site-bucket # 作成したCloud Storageバケット名
-#           local_directory: ./out # Next.jsのビルド成果物ディレクトリ (.next/static と public の中身をコピー)
-#           gcloud_build_args: -m "text/html" # 必要に応じてMIMEタイプを指定
-
-#       - name: Invalidate Cloud CDN cache (optional)
-#         if: ${{ env.CDN_ENDPOINT != '' }}
-#         uses: google-github-actions/cloud-cdn-invalidate-cache@v1
-#         with:
-#           credentials_json: ${{ secrets.GCP_SA_KEY }} # GCPサービスアカウントキーのシークレット名
-#           cdn_endpoint: ${{ env.CDN_ENDPOINT }} # Cloud CDNのエンドポイント
-#           paths: '/*'
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+        run: |
+          echo "AWS s3 sync"
+          aws s3 sync --region ap-northeast-1 ./out s3://${{ secrets.AWS_S3_BUCKET}} --delete
+          echo "AWS CF reset"
+          aws cloudfront create-invalidation --region ap-northeast-1 --distribution-id ${{ secrets.AWS_CF_ID }} --paths "/*"
