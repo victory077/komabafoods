@@ -1,5 +1,9 @@
 name: deploy next-app
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   deploy:
