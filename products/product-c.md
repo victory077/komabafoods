@@ -1,6 +1,6 @@
 ---
-title: "おしゃれなカバンc"
-slug: "product-b"
+title: "おしゃれなカバンC"
+slug: "product-c"
 image: "/images/bag-b.png"
 description: "普段使いにぴったりの、シンプルで機能的なカバンです。"
 amazon_link: "https://google.com"

@@ -34,15 +34,24 @@
   "dataRoutes": [
     {
       "page": "/",
+<<<<<<< HEAD
       "dataRouteRegex": "^/_next/data/GNFbNgrzD7V0eXfQH6TKX/index\\.json$"
+=======
+      "dataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/index\\.json$"
+>>>>>>> main
     },
     {
       "page": "/products/[slug]",
       "routeKeys": {
         "nxtPslug": "nxtPslug"
       },
+<<<<<<< HEAD
       "dataRouteRegex": "^/_next/data/GNFbNgrzD7V0eXfQH6TKX/products/([^/]+?)\\.json$",
       "namedDataRouteRegex": "^/_next/data/GNFbNgrzD7V0eXfQH6TKX/products/(?<nxtPslug>[^/]+?)\\.json$"
+=======
+      "dataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/WxfF3qa0ELcMgRq1UC8yd/products/(?<nxtPslug>[^/]+?)\\.json$"
+>>>>>>> main
     }
   ],
   "rsc": {
