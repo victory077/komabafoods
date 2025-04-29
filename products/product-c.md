@@ -1,5 +1,5 @@
 ---
-title: "おしゃれなカバンC"
+title: "おしゃれなカバンCsa"
 slug: "product-c"
 image: "/images/bag-b.png"
 description: "普段使いにぴったりの、シンプルで機能的なカバンです。"
