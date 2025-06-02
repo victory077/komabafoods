@@ -1,63 +1,37 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import type { NextPage } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ProductFrontmatter } from '../types/product';
-import { GetStaticProps, NextPage } from 'next';
 
-interface HomePageProps {
-  products: {
-    frontmatter: ProductFrontmatter;
-    slug: string;
-  }[];
-}
-
-export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
-  const files = fs.readdirSync(path.join(process.cwd(), 'products'));
-  const products = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join(process.cwd(), 'products', filename),
-      'utf-8'
-    );
-    const { data: frontmatter } = matter(markdownWithMeta);
-    return {
-      frontmatter: frontmatter as ProductFrontmatter,
-      slug: filename.replace('.md', ''),
-    };
-  });
-
-  return {
-    props: {
-      products,
-    },
-  };
-};
-
-const HomePage: NextPage<HomePageProps> = ({ products }) => {
+const PersonalHomePage: NextPage = () => {
   return (
     <div>
-      <h1>商品一覧</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.slug}>
-            <Link href={`/products/${product.slug}`}>
-              {product.frontmatter.image && (
-                <Image
-                  src={product.frontmatter.image}
-                  alt={product.frontmatter.title}
-                  width={150}
-                  height={100}
-                />
-              )}
-              <h3>{product.frontmatter.title}</h3>
-              <p>{product.frontmatter.description}</p>
-            </Link>
+      <h1>Victoireの個人サイトです。</h1>
+      <p>
+        こんにちは。Victoireです。普段はインフラエンジニアをしています。
+        ここでは、自分が作ったものや好きなものを紹介しながら技術力を練習していきたいと思います。
+      </p>
+
+      <section>
+        <h2>作ったもの・好きなもの</h2>
+        <ul>
+          {/* <li>
+            <Link href="/products">商品紹介</Link>
+          </li> */}
+          <li>
+            <Link href="/boardgames">おすすめボードゲーム紹介</Link>
           </li>
-        ))}
-      </ul>
+          {/* <li>
+            <Link href="/games">おすすめゲーム紹介</Link>
+          </li>
+          <li>
+            <Link href="/komaba">駒場のご飯紹介</Link>
+          </li>
+          <li>
+            <Link href="/about">自己紹介</Link>
+          </li> */}
+        </ul>
+      </section>
     </div>
   );
 };
 
-export default HomePage;
+export default PersonalHomePage;
