@@ -1,4 +1,4 @@
-// types/product.d.ts
+// types/product.ts
 export type ProductFrontmatter = {
     title: string;
     slug: string;
