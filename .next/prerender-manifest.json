@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/boardgames/bruff":{},"/boardgames/catan":{},"/boardgames/terraformingmars":{},"/boardgames/word":{}},"dynamicRoutes":{"/boardgames/[slug]":{"fallback":false}},"notFoundRoutes":[],"preview":{"previewModeId":"8e8684ec3d0c8c7db306b212ac14e4a1","previewModeSigningKey":"230fb83473a28232fb3ee344fa2e7a70ee4139af6dfc832690ffe4286f5b0ad2","previewModeEncryptionKey":"b13a2c42dfa59aa295b820ff71739186d6864590e7dd0337ae9c78f272c8df16"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "36c47b65991db6c87c1dcdf91c0c36fa",
+    "previewModeSigningKey": "e6fdea48b0bea8abf2d95def790e51a2cd139329607f034da7e86b531b3e6301",
+    "previewModeEncryptionKey": "819ace105c4b1f9a62cd639805e2b0452d90b4a4cb5f2abc218613ce11f6caad"
+  }
+}
