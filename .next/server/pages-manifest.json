@@ -2,6 +2,5 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/boardgames": "pages/boardgames.js",
-  "/boardgames/[slug]": "pages/boardgames/[slug].js"
+  "/boardgames": "pages/boardgames.js"
 }
